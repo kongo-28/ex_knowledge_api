@@ -3,9 +3,14 @@ class KnowledgesController < ApplicationController
 
   # GET /knowledges
   def index
-    @knowledges = Knowledge.all
+    # @knowledges = Knowledge.all
+    chat_gpt_service = ChatGptService.new
+    # @chat_gpt = chat_gpt_service.chat("output 3 knowledge.")
+    @chat_gpt = chat_gpt_service.chat("output 1 knowledge. about 50words")
+    @knowledges = [title: "今日のknowledge",
+                  content: chat_gpt_service.chat("output 1 knowledge. about 50words")]
 
-    render json: @knowledges
+    render json: @knowledges 
   end
 
   # GET /knowledges/1
