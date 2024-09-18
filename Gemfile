@@ -49,3 +49,6 @@ end
 gem 'httparty'
 
 gem "ruby-openai"
+
+gem "devise"
+gem "devise_token_auth"
