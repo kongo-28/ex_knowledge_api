@@ -5,9 +5,9 @@ class KnowledgesController < ApplicationController
   def index
     @knowledges = Knowledge.all
     chat_gpt_service = ChatGptService.new
-    @chat_gpt = chat_gpt_service.chat("output 1 knowledge. about 50words")
+    @chat_gpt = chat_gpt_service.chat("output 1 knowledge. about 50words. ")
     @knowledges[0].update(content:chat_gpt_service.chat("output 1 valuable knowledge. about 50words"))
-    @knowledges[1].update(content:chat_gpt_service.chat("output 1 valuable knowledge. about 50words"))
+    @knowledges[1].update(content:chat_gpt_service.chat("output 1 usefull for dayly life knowledge. about 50words"))
     render json: @knowledges 
   end
 
